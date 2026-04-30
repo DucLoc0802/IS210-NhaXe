@@ -1,0 +1,46 @@
+version: '3.8' # Nên khai báo phiên bản compose để Docker hiểu cú pháp
+
+services:
+    oracle:
+        # Sử dụng image Oracle Free (nhẹ và phổ biến nhất cho dev)
+        image: gvenzl/oracle-free:latest
+        container_name: oracle_db
+        ports:
+            - "1521:1521"
+        environment:
+            - ORACLE_PASSWORD=secret # Đặt mật khẩu cho user SYS/SYSTEM và ADMIN
+            - APP_USER=admin # Tự động tạo user admin
+            - APP_PASSWORD=secret # Tự động tạo pass cho user admin
+        volumes:
+            - oracle_data:/opt/oracle/oradata # Lưu trữ dữ liệu cứng, không bị mất khi tắt Docker
+
+    backend:
+        build:
+            context: ./backend
+        container_name: nest_backend
+        ports:
+            - "3001:3001" # Đã sửa lại cho khớp 100% với file main.ts
+        env_file:
+            - ./backend/.env
+        depends_on:
+            - oracle
+        # Đợi Oracle khởi động hẳn rồi Backend mới chạy (tránh lỗi ngắt kết nối DB)
+        restart: on-failure
+
+    frontend:
+        build:
+            context: ./frontend
+            args:
+                # Nếu Frontend của bạn gọi API trực tiếp từ trình duyệt của người dùng (Client-side)
+                NEXT_PUBLIC_API_URL: http://localhost:3001
+        container_name: next_frontend
+        ports:
+            - "3000:3000"
+        env_file:
+            - ./frontend/.env.local
+        depends_on:
+            - backend
+
+# Khai báo volume để lưu trữ dữ liệu vĩnh viễn
+volumes:
+    oracle_data:
