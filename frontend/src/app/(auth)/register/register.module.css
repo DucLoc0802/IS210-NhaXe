@@ -1,0 +1,508 @@
+/* Registration Page Styles */
+
+:root {
+    --color-primary-dark: #185FA5;
+    --color-primary-darker: #0C447C;
+    --color-primary-light: #E6F1FB;
+    --color-text-primary: #2C2C2A;
+    --color-text-secondary: #888780;
+    --color-text-tertiary: #B4B2A9;
+    --color-background-primary: #FFFFFF;
+    --color-background-secondary: #F1EFE8;
+    --color-border: #D3D1C7;
+    --color-error: #E24B4A;
+    --color-error-light: #FCEBEB;
+    --color-success: #639922;
+    --color-success-light: #EAF3DE;
+}
+
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Main Container */
+.authContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    background: var(--color-background-primary);
+}
+
+/* Form Section - Left Side */
+.formSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: var(--color-background-primary);
+    animation: slideInLeft 0.8s ease-out;
+    overflow-y: auto;
+}
+
+.formContent {
+    width: 100%;
+    max-width: 380px;
+}
+
+.header {
+    margin-bottom: 2rem;
+    animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* Form Styling */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    animation: fadeIn 0.6s ease-out 0.4s both;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    display: block;
+}
+
+.input {
+    padding: 0.65rem 0.75rem;
+    border: 0.5px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 15px;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.input::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+.input:hover {
+    border-color: var(--color-primary-dark);
+    background: var(--color-background-primary);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 0 0 2px var(--color-primary-light);
+    background: var(--color-background-primary);
+}
+
+.input:disabled {
+    background: var(--color-background-secondary);
+    color: var(--color-text-tertiary);
+    cursor: not-allowed;
+}
+
+.inputError {
+    border-color: var(--color-error);
+    background: var(--color-error-light);
+}
+
+.inputError:focus {
+    box-shadow: 0 0 0 2px rgba(226, 75, 74, 0.1);
+}
+
+.fieldError {
+    font-size: 13px;
+    color: var(--color-error);
+    display: block;
+    animation: slideDown 0.2s ease-out;
+}
+
+.hint {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.errorMessage {
+    padding: 0.75rem 1rem;
+    background: var(--color-error);
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Checkbox Label */
+.checkboxLabel {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: var(--color-text-primary);
+    user-select: none;
+    transition: color 0.2s ease;
+    font-size: 14px;
+}
+
+.checkboxLabel:hover {
+    color: var(--color-primary-dark);
+}
+
+.checkboxLabel span {
+    padding-top: 2px;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--color-primary-dark);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.checkbox:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.termsLink {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.termsLink:hover {
+    color: var(--color-primary-darker);
+    text-decoration: underline;
+}
+
+/* Submit Button */
+.submitBtn {
+    padding: 0.75rem 1rem;
+    background: var(--color-primary-dark);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    letter-spacing: 0.3px;
+    animation: fadeIn 0.6s ease-out 0.6s both;
+}
+
+.submitBtn:hover:not(:disabled) {
+    background: var(--color-primary-darker);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(24, 95, 165, 0.25);
+}
+
+.submitBtn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Login Prompt */
+.loginPrompt {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-top: 1.25rem;
+    text-align: center;
+}
+
+.loginLink {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.loginLink:hover {
+    color: var(--color-primary-darker);
+    text-decoration: underline;
+}
+
+/* Success State */
+.successContainer {
+    text-align: center;
+    padding: 2rem 0;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.successIcon {
+    width: 64px;
+    height: 64px;
+    background: var(--color-success-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--color-success);
+    margin: 0 auto 1.5rem;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.successTitle {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+}
+
+.successMessage {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.successLink {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary-dark);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.successLink:hover {
+    background: var(--color-primary-darker);
+    transform: translateY(-1px);
+}
+
+/* Visual Section - Right Side */
+.visualSection {
+    background: linear-gradient(135deg, #185FA5 0%, #0C447C 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideInRight 0.8s ease-out;
+}
+
+.visualBackground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: radial-gradient(circle at 20% 20%, white 0%, transparent 50%),
+        radial-gradient(circle at 80% 30%, white 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, white 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, white 0%, transparent 50%);
+}
+
+.visualContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.carIcon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.visualTitle {
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.3px;
+}
+
+.visualSubtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    line-height: 1.6;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .authContainer {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .visualSection {
+        display: none;
+    }
+
+    .formSection {
+        min-height: 100vh;
+        padding: 2rem 1.5rem;
+    }
+
+    .formContent {
+        max-width: 100%;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .authContainer {
+        padding: 0;
+    }
+
+    .formSection {
+        padding: 1.5rem 1rem;
+    }
+
+    .formContent {
+        max-width: 100%;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .input {
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+    }
+
+    .submitBtn {
+        padding: 0.85rem 1rem;
+    }
+
+    .form {
+        gap: 1rem;
+    }
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+    .input:focus {
+        box-shadow: 0 0 0 2px rgba(181, 212, 244, 0.3);
+    }
+
+    .submitBtn:hover:not(:disabled) {
+        box-shadow: 0 4px 12px rgba(133, 183, 235, 0.25);
+    }
+
+    .inputError {
+        background: var(--color-error-light);
+    }
+}
