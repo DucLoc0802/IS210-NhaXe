@@ -1,6 +1,6 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
-import { Phieudatve } from "../../ve/Phieudatve";
-import { Phieuguihang } from "./Phieuguihang";
+import { Phieudatve } from "../ve/Phieudatve";
+import { Phieuguihang } from "../hanghoa/Phieuguihang";
 
 @Index("PK_GIAODICH", ["magd"], { unique: true })
 @Entity("GIAODICH")

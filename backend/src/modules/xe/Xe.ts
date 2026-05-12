@@ -6,7 +6,7 @@ import {
   ManyToOne,
   OneToMany,
 } from "typeorm";
-import { Hosochuyenxe } from "./Hosochuyenxe";
+import { Hosochuyenxe } from "../chuyenxe/Hosochuyenxe";
 import { Loaixe } from "./Loaixe";
 
 @Index("PK_XE", ["maxe"], { unique: true })

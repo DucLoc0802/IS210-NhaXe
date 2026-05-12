@@ -6,10 +6,10 @@ import {
   ManyToOne,
   OneToMany,
 } from "typeorm";
-import { Giaodich } from "./Giaodich";
+import { Giaodich } from "../giaodich/Giaodich";
 import { Hanghoa } from "./Hanghoa";
 import { Khachhang } from "../khachhang/Khachhang";
-import { Tichdiiem } from "./Tichdiiem";
+import { Tichdiem } from "../khachhang/Tichdiem";
 
 @Index("PK_PHIEUGUIHANG", ["maphieuhang"], { unique: true })
 @Entity("PHIEUGUIHANG")
@@ -58,6 +58,6 @@ export class Phieuguihang {
   @JoinColumn([{ name: "MAKH", referencedColumnName: "makh" }])
   makh: Khachhang;
 
-  @OneToMany(() => Tichdiiem, (tichdiiem) => tichdiiem.maphieuhang)
-  tichdiiems: Tichdiiem[];
+  @OneToMany(() => Tichdiem, (tichdiem) => tichdiem.maphieuhang)
+  tichdiiems: Tichdiem[];
 }

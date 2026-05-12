@@ -1,5 +1,5 @@
 import { Column, Entity, Index, OneToMany } from "typeorm";
-import { Phieudatve } from "../../ve/Phieudatve";
+import { Phieudatve } from "../ve/Phieudatve";
 
 @Index("PK_KHUYENMAI", ["makm"], { unique: true })
 @Entity("KHUYENMAI")

@@ -1,5 +1,5 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
-import { Hosochuyenxe } from "../../chuyenxe/Hosochuyenxe";
+import { Hosochuyenxe } from "../chuyenxe/Hosochuyenxe";
 import { Phieuguihang } from "./Phieuguihang";
 
 @Index("PK_HANGHOA", ["mahh"], { unique: true })

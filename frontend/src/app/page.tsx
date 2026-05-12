@@ -1,6 +1,7 @@
 "use client";
 // page.tsx - Trang chủ của BusGo - Ứng dụng đặt vé xe buýt
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 // ============================================
 // DỮ LIỆU MẪU
@@ -205,6 +206,8 @@ export default function HomePage() {
   // Trạng thái đang tìm kiếm
   const [isSearching, setIsSearching] = useState(false);
 
+  const router = useRouter();
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
@@ -254,8 +257,8 @@ export default function HomePage() {
 
         {/* Nút hành động (desktop) */}
         <div className="navbar-actions">
-          <button className="btn-ghost">Đăng nhập</button>
-          <button className="btn-nav-primary">Đăng ký</button>
+          <button className="btn-ghost" onClick={() => router.push('/login')}>Đăng nhập</button>
+          <button className="btn-nav-primary" onClick={() => router.push('/register')}>Đăng ký</button>
         </div>
 
         {/* Hamburger (mobile) */}

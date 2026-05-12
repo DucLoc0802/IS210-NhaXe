@@ -7,7 +7,7 @@ import {
   OneToMany,
 } from "typeorm";
 import { Hosochuyenxe } from "./Hosochuyenxe";
-import { Benxe } from "./Benxe";
+import { Benxe } from "../xe/Benxe";
 
 @Index("PK_TUYENXE", ["matuyen"], { unique: true })
 @Entity("TUYENXE")

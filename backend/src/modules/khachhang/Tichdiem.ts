@@ -1,11 +1,11 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
 import { Khachhang } from "./Khachhang";
-import { Phieudatve } from "./Phieudatve";
-import { Phieuguihang } from "./Phieuguihang";
+import { Phieudatve } from "../ve/Phieudatve";
+import { Phieuguihang } from "../hanghoa/Phieuguihang";
 
-@Index("PK_TICHDIIEM", ["matichdiem"], { unique: true })
-@Entity("TICHDIIEM")
-export class Tichdiiem {
+@Index("PK_TICHDIEM", ["matichdiem"], { unique: true })
+@Entity("TICHDIEM")
+export class Tichdiem {
   @Column("varchar2", { primary: true, name: "MATICHDIEM", length: 20 })
   matichdiem: string;
 

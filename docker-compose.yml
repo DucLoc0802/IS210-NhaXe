@@ -12,7 +12,8 @@ services:
             - APP_USER=admin # Tự động tạo user admin
             - APP_PASSWORD=secret # Tự động tạo pass cho user admin
         volumes:
-            - oracle_data:/opt/oracle/oradata # Lưu trữ dữ liệu cứng, không bị mất khi tắt Docker
+            - oracle_data:/opt/oracle/oradata
+            - ./database/init.sql:/container-entrypoint-initdb.d/01_init.sql
 
     backend:
         build:

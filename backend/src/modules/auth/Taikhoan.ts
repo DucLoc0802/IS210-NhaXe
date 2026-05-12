@@ -1,6 +1,6 @@
 import { Column, Entity, Index, OneToMany } from "typeorm";
 import { Khachhang } from "../khachhang/Khachhang";
-import { Nhanvien } from "./Nhanvien";
+import { Nhanvien } from "../nhanvien/Nhanvien";
 
 @Index("PK_TAIKHOAN", ["matk"], { unique: true })
 @Entity("TAIKHOAN")

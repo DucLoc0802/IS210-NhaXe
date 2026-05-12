@@ -7,7 +7,7 @@ import {
   OneToMany,
 } from "typeorm";
 import { Khachhang } from "./Khachhang";
-import { Ve } from "./Ve";
+import { Ve } from "../ve/Ve";
 
 @Index("PK_HANHKHACH", ["mahk"], { unique: true })
 @Entity("HANHKHACH")

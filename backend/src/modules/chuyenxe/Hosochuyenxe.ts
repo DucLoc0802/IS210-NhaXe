@@ -6,11 +6,11 @@ import {
   ManyToOne,
   OneToMany,
 } from "typeorm";
-import { Hanghoa } from "../temp/entities/Hanghoa";
+import { Hanghoa } from "../hanghoa/Hanghoa";
 import { Tuyenxe } from "./Tuyenxe";
 import { Taixe } from "../nhanvien/Taixe";
-import { Xe } from "./Xe";
-import { Ve } from "../xe/Ve";
+import { Xe } from "../xe/Xe";
+import { Ve } from "../ve/Ve";
 
 @Index("PK_HOSOCHUYENXE", ["machuyen"], { unique: true })
 @Entity("HOSOCHUYENXE")

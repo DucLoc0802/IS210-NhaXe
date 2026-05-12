@@ -11,7 +11,7 @@ import { Hangthanhvien } from "./Hangthanhvien";
 import { Taikhoan } from "../auth/Taikhoan";
 import { Phieudatve } from "../ve/Phieudatve";
 import { Phieuguihang } from "../hanghoa/Phieuguihang";
-import { Tichdiiem } from "./Tichdiiem";
+import { Tichdiem } from "./Tichdiem";
 
 @Index("PK_KHACHHANG", ["makh"], { unique: true })
 @Index("UNQ_KH_EMAIL", ["email"], { unique: true })
@@ -64,6 +64,6 @@ export class Khachhang {
   @OneToMany(() => Phieuguihang, (phieuguihang) => phieuguihang.makh)
   phieuguihangs: Phieuguihang[];
 
-  @OneToMany(() => Tichdiiem, (tichdiiem) => tichdiiem.makh)
-  tichdiiems: Tichdiiem[];
+  @OneToMany(() => Tichdiem, (tichdiem) => tichdiem.makh)
+  tichdiiems: Tichdiem[];
 }

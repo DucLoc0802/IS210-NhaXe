@@ -6,7 +6,7 @@ import {
   ManyToOne,
   OneToOne,
 } from "typeorm";
-import { Taikhoan } from "./Taikhoan";
+import { Taikhoan } from "../auth/Taikhoan";
 import { Taixe } from "./Taixe";
 
 @Index("PK_NHANVIEN", ["manv"], { unique: true })

@@ -1,7 +1,7 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
 import { Hosochuyenxe } from "../chuyenxe/Hosochuyenxe";
-import { Hanhkhach } from "./Hanhkhach";
-import { Phieudatve } from "../ve/Phieudatve";
+import { Hanhkhach } from "../khachhang/Hanhkhach";
+import { Phieudatve } from "./Phieudatve";
 
 @Index("PK_VE", ["mave"], { unique: true })
 @Index("UNQ_VE_GHECHUYEN", ["machuyen", "maghe"], { unique: true })

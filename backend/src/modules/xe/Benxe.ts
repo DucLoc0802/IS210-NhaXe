@@ -1,5 +1,5 @@
 import { Column, Entity, Index, OneToMany } from "typeorm";
-import { Tuyenxe } from "./Tuyenxe";
+import { Tuyenxe } from "../chuyenxe/Tuyenxe";
 
 @Index("PK_BENXE", ["maben"], { unique: true })
 @Entity("BENXE")

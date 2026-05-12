@@ -6,11 +6,11 @@ import {
   ManyToOne,
   OneToMany,
 } from "typeorm";
-import { Giaodich } from "../temp/entities/Giaodich";
+import { Giaodich } from "../giaodich/Giaodich";
 import { Khachhang } from "../khachhang/Khachhang";
-import { Khuyenmai } from "../temp/entities/Khuyenmai";
-import { Tichdiiem } from "./Tichdiiem";
-import { Ve } from "../xe/Ve";
+import { Khuyenmai } from "../giaodich/Khuyenmai";
+import { Tichdiem } from "../khachhang/Tichdiem";
+import { Ve } from "./Ve";
 
 @Index("PK_PHIEUDATVE", ["maphieuve"], { unique: true })
 @Entity("PHIEUDATVE")
@@ -48,8 +48,8 @@ export class Phieudatve {
   @JoinColumn([{ name: "MAKM", referencedColumnName: "makm" }])
   makm: Khuyenmai;
 
-  @OneToMany(() => Tichdiiem, (tichdiiem) => tichdiiem.maphieuve)
-  tichdiiems: Tichdiiem[];
+  @OneToMany(() => Tichdiem, (tichdiem) => tichdiem.maphieuve)
+  tichdiiems: Tichdiem[];
 
   @OneToMany(() => Ve, (ve) => ve.maphieuve)
   ves: Ve[];
