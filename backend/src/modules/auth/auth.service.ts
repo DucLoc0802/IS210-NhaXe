@@ -43,6 +43,17 @@ export class AuthService {
       }
     }
 
+    if (!account) {
+      const tk = await this.taikhoanRepo.findOne({
+        where: { tentk: sdt },
+      });
+      if (tk) {
+        account = tk;
+        role = tk.vaitro ?? '';
+        hoten = tk.tentk;
+      }
+    }
+
     if (!account || account.matkhau !== password) {
       throw new UnauthorizedException('Sai thông tin đăng nhập!');
     }
