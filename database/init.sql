@@ -319,3 +319,22 @@ create table tichdiem (
 );
 
 commit;
+
+-- ============================================================================
+-- DUMMY ACCOUNTS
+-- ============================================================================
+
+-- Admin
+insert into taikhoan (matk, tentk, matkhau, vaitro) values ('TK001', 'admin', 'admin', 'admin');
+
+-- Employee (needs TAIKHOAN + NHANVIEN)
+insert into taikhoan (matk, tentk, matkhau, vaitro) values ('TK002', 'nhanvien', 'nhanvien', 'nhanvien');
+insert into nhanvien (manv, matk, hoten, sdt, email, cccd, vitri, ngayvaolam, luongcb, trangthai) 
+values ('NV001', 'TK002', N'Nhân Viên', '0900000001', 'nhanvien@busgo.com', '001099000001', N'Nhân viên bán vé', sysdate, 8000000, 1);
+
+-- Customer (needs TAIKHOAN + KHACHHANG)
+insert into taikhoan (matk, tentk, matkhau, vaitro) values ('TK003', 'khachhang', 'khachhang', 'khachhang');
+insert into khachhang (makh, matk, hoten, sdt, email, diemtichluy) 
+values ('KH001', 'TK003', N'Khách Hàng', '0900000002', 'khachhang@busgo.com', 0);
+
+commit;
