@@ -1,7 +1,7 @@
 "use client";
 // page.tsx - Trang chủ của BusGo - Ứng dụng đặt vé xe buýt
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 
 // ============================================
 // DỮ LIỆU MẪU
@@ -200,19 +200,7 @@ export default function HomePage() {
   const [returnDate, setReturnDate] = useState("");
   const [passengers, setPassengers] = useState(1);
 
-  // Cuộn navbar
-  const [scrolled, setScrolled] = useState(false);
-
-  // Trạng thái đang tìm kiếm
   const [isSearching, setIsSearching] = useState(false);
-
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Xử lý đổi điểm đi/đến
   const handleSwap = () => {
@@ -234,38 +222,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ==============================
-          NAVIGATION BAR
-          ============================== */}
-      <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
-        {/* Logo */}
-        <div className="navbar-logo">
-          <div className="logo-icon">🚌</div>
-          <span className="logo-text">
-            Nhà <span>Xe</span>
-          </span>
-        </div>
 
-        {/* Link điều hướng (desktop) */}
-        <ul className="navbar-links">
-          <li><a href="#routes">Tuyến đường</a></li>
-          <li><a href="#features">Tính năng</a></li>
-          <li><a href="#testimonials">Đánh giá</a></li>
-          <li><a href="#">Tra cứu vé</a></li>
-          <li><a href="#">Hỗ trợ</a></li>
-        </ul>
-
-        {/* Nút hành động (desktop) */}
-        <div className="navbar-actions">
-          <button className="btn-ghost" onClick={() => router.push('/login')}>Đăng nhập</button>
-          <button className="btn-nav-primary" onClick={() => router.push('/register')}>Đăng ký</button>
-        </div>
-
-        {/* Hamburger (mobile) */}
-        <button className="hamburger" aria-label="Mở menu">
-          <span /><span /><span />
-        </button>
-      </nav>
 
       {/* ==============================
           HERO SECTION
@@ -683,7 +640,7 @@ export default function HomePage() {
             <h4>Dịch vụ</h4>
             <ul className="footer-links">
               <li><a href="#">Đặt vé xe buýt</a></li>
-              <li><a href="#">Tra cứu vé</a></li>
+          <li><a href="/tracuu-ve">Tra cứu vé</a></li>
               <li><a href="#">Tuyến đường</a></li>
               <li><a href="#">Lịch chạy xe</a></li>
             </ul>

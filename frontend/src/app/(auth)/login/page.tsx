@@ -35,9 +35,8 @@ export default function AuthPage() {
             }
 
             const data = await response.json();
-            console.log('Đăng nhập thành công:', data);
-
-            // Chuyển hướng người dùng về trang chủ
+            localStorage.setItem('token', data.access_token);
+            localStorage.setItem('user', JSON.stringify(data.user));
             router.push('/');
 
         } catch (err) {

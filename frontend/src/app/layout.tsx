@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 import { Dancing_Script, Be_Vietnam_Pro } from 'next/font/google';
+import ClientLayout from '@/components/ClientLayout';
 
 
 const bodyFont = Be_Vietnam_Pro({
@@ -41,7 +42,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${displayFont.variable} ${bodyFont.variable}`}>
-        {children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
